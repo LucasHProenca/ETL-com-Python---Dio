@@ -8,15 +8,16 @@
 <p align="center">
  <a href="#-sobre-o-projeto">Sobre</a> •
  <a href="#-funcionalidades">Funcionalidades</a> •
- <a href="#-análise-e-transformação">Análise e Transformação</a> • 
+ <a href="#-etl">ETL</a> • 
  <a href="#-tecnologias">Tecnologias</a> • 
  <a href="#-autor">Autor</a> • 
 </p>
 
 ## 💻 Sobre o projeto 
 
- 
-📟 Análise e Transformação de Dados - Esse projeto teve como objetivo interpretar e transformar uma base de dados para a obtenção de informações pertinentes para a geração de um relatório simples de uma empresa.
+📟 ETL com Python - Para este projeto foi utilizada uma base dados que contem a relação de usuários, seus tipos de planos, taxa de cancelamento, entre outras informações. O objetivo aqui é realizar um processo de ETL, visando transformar os dados para encontrar as causas de cancelamento.
+
+Você pode encontrar os códigos feitos pelo [Colab](https://colab.google/) [aqui](https://colab.research.google.com/drive/1w-4eBhpMihKUcKC1UQwT2TLNgfXkVlwo?usp=sharing)
 
 Projeto desenvolvido durante o **Bootcamp de Ciência de Dados com Python** da [DIO](https://www.dio.me/en).
 Esse bootcamp é uma experiência online, um programa com mais de 80 horas de experiência prática nas principais tecnologias que norteiam o Python, também oferece desafios de código e projetos individuais.
@@ -25,54 +26,23 @@ Esse bootcamp é uma experiência online, um programa com mais de 80 horas de ex
 
 ## ⚙️ Funcionalidades
 
-  - [x] Demonstrativos gráficos;  
+  - [x] Extração, Analise, Transformação e Carregamento de dados;  
 
 ---
 
-## 📄 Análise e Transformação
+## 📄 ETL
 
-Neste desáfio a ideia era a criação e hospedagem de um banco de dados que relacionava informações sobre os departamentos, suas localizações, funcionários e seus dependentes dentro da plataforma [Azure](https://azure.microsoft.com/pt-br/), e após isso realizar uma análise detalhada para as seguintes questões:
+### Extrair
 
-![questionario](https://github.com/LucasHProenca/Transformando-dados-com-BI/assets/106993403/b18eb764-81d5-43f3-9357-55c35245b5a0)
+Durante a extração, o ETL identifica os dados e os copia de suas origens, de forma que possa transportar os dados para o armazenamento de dados de destino. Os dados podem vir de fontes estruturadas e não estruturadas, incluindo documentos, emails, aplicações de negócios, bancos de dados, equipamentos, sensores, terceiros e muito mais. Antes de serem transformados, os dados precisam ser cuidadosamente analisados afim de eliminar quaisquer redundancias, valores nulos, ou até mesmo dados que não nos ajudem a chegar a uma conclusão satisfatória.
 
-### ATENÇÃO!
+### Transformar
 
-#### A fim de não compromoter dados seguros, alguns dados foram modificados apenas para sanar essas questões.
+Como os dados extraídos são brutos em sua forma original, eles precisam ser mapeados e transformados para prepará-los para o armazenamento de dados eventual. No processo de transformação, o ETL valida, autentica, desduplica e/ou agrega os dados de formas que tornam os dados resultantes confiáveis e consultáveis.
 
-![endereco](https://github.com/LucasHProenca/Transformando-dados-com-BI/assets/106993403/bc6af0d3-0461-46c5-b7ea-68d75be40cf4)
+### Carregar 
 
-
-Anteriormente, a coluna "endereço" era algo complexo, e para melhorar sua visualização, resolvemos desfragmenta-la em "Número, Bairro, Cidade e Estado"
-
-![mesclaEmpregadosEDpt](https://github.com/LucasHProenca/Transformando-dados-com-BI/assets/106993403/b0aeac00-31af-411a-a699-22a7bf8ea7c9)
-
-
-Dentro da base dados recebida, tinhamos no inicio duas tabelas separadas "Departamentos" e "Empregados" então, decidimos mescla-las numa só para facilitar a compreensão dos dados, como mostra o exemplo acima.
-
-Foi solicitado também a junção de dados entre "Gerentes" e "Gerenciados" com isso foi realizada a mescla entre a tabela "empregados" e "departamento dos empregados". Algo importante de se ressaltar, é que neste caso apesar de termos acesso ao identificador do gerente de cada funcionário inicialmente na tabela "empregados" não tinhamos acesso ao seu nome, então não seria possível atribuir os dados dentro da própria tabela, a unica forma encontrada foi realizando a mescla com outra tabela. 
-
-![gerentesEEmpregados](https://github.com/LucasHProenca/Transformando-dados-com-BI/assets/106993403/bbb5fb64-995d-46c9-9df5-e0766b991ed1)
-
-
-![graficoDeBarrasGEE](https://github.com/LucasHProenca/Transformando-dados-com-BI/assets/106993403/f6493d5b-ff56-4ccb-8a7e-d8cc3e8140f2)
-
-
-E por fim era necessário realizar a conexão entre as tabelas "Departamentos" e "Localizações" afim de unir suas informações disponibilizando uma visualização simples, clara e objetiva dos dados.
-
-![departamentosELocalizações](https://github.com/LucasHProenca/Transformando-dados-com-BI/assets/106993403/fb7061f2-b018-4172-8b27-424447bad797)
-
-
-### Relatório 
-
-Para demonstrar na prática do que essa base de dados se trata, criamos o seguinte demonstrativo. 
-
-![relatorio](https://github.com/LucasHProenca/Transformando-dados-com-BI/assets/106993403/2b17c162-7fa3-4fc1-82b5-b509076aa9b5)
-
-
-Como podemos ver nos dados do relatório acima, podemos ver quem são os gerentes, assim como quem são seus respectivos funcionários, a localização de cada departamento, com o salário de todos os funcionários pudemos comprovar que James Borg possui o maior cargo dentro da empresa, e próximo a ele Jennifer Wallace, Franklin Wrong e Ramesh Narayan ocupam as próximas posições, sendo os dois primeiros gerentes e o terceiro pudemos concluir que provavelmente será promovido em breve, considerando a proximidade salarial entre ele e os atuais gerentes.
-Também podemos ver um mapa demonstrando o salário dos empregados de acordo com a cidade que trabalham e seu genero.
-
-Podemos concluir então que a transformação dos dados foi bem sucedida e os gráficos trazem informações claras e objetivas, facilitando o entendimento do seu publico alvo.
+O ETL move os dados transformados para o armazenamento de dados de destino. Esta etapa pode implicar o carregamento inicial de todos os dados de origem ou pode ser o carregamento de alterações incrementais nos dados de origem. Você pode carregar os dados em tempo real ou em lotes programados.
 
 ---
 
@@ -80,7 +50,8 @@ Podemos concluir então que a transformação dos dados foi bem sucedida e os gr
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
--   **[Power BI](https://reactrouter.com/en/main)**
+-   **[Python](https://www.python.org/)**
+-   **[Processo ETL](https://www.oracle.com/br/integration/what-is-etl/)**
 
 ---
 
