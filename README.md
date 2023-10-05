@@ -15,7 +15,7 @@
 
 ## 💻 Sobre o projeto 
 
-📟 ETL com Python - Para este projeto foi utilizada uma base dados que contem a relação de usuários, seus tipos de planos, taxa de cancelamento, entre outras informações. O objetivo aqui é realizar um processo de ETL, visando transformar os dados para encontrar as causas de cancelamento.
+📟 ETL com Python - Para este projeto foi utilizada uma base dados que contem a relação de usuários, seus tipos de planos, taxa de cancelamento, entre outras informações. O objetivo aqui é realizar um processo de ETL, visando analisar e transformar os dados para encontrar as causas de cancelamento.
 
 Você pode encontrar os códigos feitos pelo colab [aqui](https://colab.research.google.com/drive/1w-4eBhpMihKUcKC1UQwT2TLNgfXkVlwo?usp=sharing).
 
